@@ -29,9 +29,9 @@ Please use Python 3.6, opencv-contrib-python (3.4.0.12) and Pytorch (>= 1.1.0). 
 For a quick start, clone the repo and download the pretrained model,
 ```bash
 git clone https://github.com/zjhthu/OANet.git 
-cd OANet && mkdir model 
-wget xxx 
-tar -xvf xxx
+cd OANet 
+wget https://research.altizure.com/data/oanet_data/model.tar.gz 
+tar -xvf model.tar.gz
 ```
 
 then run the fundamental matrix estimation demo:
@@ -44,7 +44,10 @@ cd ./demo && python demo.py
 
 We provide the model trained on YFCC100M described in our ICCV paper. Run the test script to get results in our paper.
 
+Download prepared training and testing data. This might take a while. 
 ```bash
+wget https://research.altizure.com/data/oanet_data/data_dump.tar.gz
+tar -xvf data_dump.tar.gz
 cd ./core 
 python main.py --run_mode=test --model_path=../model/essential/sift-2000 --res_path=../model/essential/sift-2000/ --use_ransac=False
 ```
@@ -52,11 +55,10 @@ Set `--use_ransac=True` to get results after RANSAC post-processing.
 
 ### Train model on YFCC100M
 
-Download prepared data and run tranining script.
+Download prepared data described above. Then run tranining script.
 ```bash
-wget xxx 
-tar -xvf xxx
-cd ./core && python main.py
+cd ./core 
+python main.py
 ```
 
 You can train the fundamental estimation model by setting `--use_fundamental=True` and use side information by setting `--use_ratio=2 --use_mutual=2`

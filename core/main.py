@@ -53,7 +53,7 @@ def main(config):
 
         train_loader = torch.utils.data.DataLoader(
                 train_dataset, batch_size=config.train_batch_size, shuffle=True,
-                num_workers=32, pin_memory=False, collate_fn=collate_fn)
+                num_workers=16, pin_memory=False, collate_fn=collate_fn)
 
         valid_dataset = CorrespondencesDataset(config.data_va, config)
         valid_loader = torch.utils.data.DataLoader(

@@ -28,12 +28,12 @@ def collate_fn(batch):
             sub_idx = np.random.choice(sample['xs'].shape[1], cur_num_kp)
             data['xs'].append(sample['xs'][:,sub_idx,:])
             data['ys'].append(sample['ys'][sub_idx,:])
-            if len(sample['side']) != 0:
+            if sample['side'] != []:
                 data['sides'].append(sample['side'][sub_idx,:])
         else:
             data['xs'].append(sample['xs'])
             data['ys'].append(sample['ys'])
-            if len(sample['side']) != 0:
+            if sample['side'] != []:
                 data['sides'].append(sample['side'])
 
 
@@ -98,15 +98,8 @@ class CorrespondencesDataset(data.Dataset):
             side.append(np.asarray(self.data['ratios'][str(index)]).reshape(-1,1)) 
             side.append(np.asarray(self.data['mutuals'][str(index)]).reshape(-1,1))
             side = np.concatenate(side,axis=-1)
-        elif self.config.use_ratio == 1 and self.config.use_mutual == 0:
-            mask = np.asarray(self.data['ratios'][str(index)]).reshape(-1)  < config.ratio_test_th
-            xs = xs[:,mask,:]
-            ys = ys[:,mask]
-        elif self.config.use_ratio == 2 and self.config.use_mutual == 0:
-            side = np.asarray(self.data['ratios'][str(index)]).reshape(-1,1)
         else:
             raise NotImplementedError
-        #import pdb;pdb.set_trace()
 
 
         e_gt_unnorm = np.reshape(np.matmul(
