@@ -46,8 +46,9 @@ We provide the model trained on YFCC100M described in our ICCV paper. Run the te
 
 Download prepared training and testing data. This might take a while. 
 ```bash
-wget https://research.altizure.com/data/oanet_data/data_dump.tar.gz
+bash download_data.sh
 tar -xvf data_dump.tar.gz
+rm -r download_data_oanet_data
 cd ./core 
 python main.py --run_mode=test --model_path=../model/essential/sift-2000 --res_path=../model/essential/sift-2000/ --use_ransac=False
 ```
