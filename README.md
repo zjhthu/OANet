@@ -19,7 +19,7 @@ If you find this project useful, please cite:
 
 ## Requirements
 
-Please use Python 3.6, opencv-contrib-python (3.4.0.12) and Pytorch (>= 1.1.0). Other dependencies should be easily install through pip or conda.
+Please use Python 3.6, opencv-contrib-python (3.4.0.12) and Pytorch (>= 1.1.0). Other dependencies should be easily installed through pip or conda.
 
 
 ## Example scripts
@@ -62,7 +62,7 @@ cd ./core
 python main.py
 ```
 
-You can train the fundamental estimation model by setting `--use_fundamental=True` and use side information by setting `--use_ratio=2 --use_mutual=2`
+You can train the fundamental estimation model by setting `--use_fundamental=True --geo_loss_margin=0.03` and use side information by setting `--use_ratio=2 --use_mutual=2`
 
 ### [TODO] Train with your own local feature or data 
 
