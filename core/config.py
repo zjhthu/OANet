@@ -51,14 +51,14 @@ net_arg.add_argument(
 # Data
 data_arg = add_argument_group("Data")
 data_arg.add_argument(
-    "--data_tr", type=str, default='../data_dump/yfcc_sift_2k_tr.hdf5', help=""
+    "--data_tr", type=str, default='../data_dump/yfcc-sift-2000-train.hdf5', help=""
     "name of the dataset for train")
 data_arg.add_argument(
-    "--data_va", type=str, default='../data_dump/yfcc_sift_2k_va.hdf5', help=""
+    "--data_va", type=str, default='../data_dump/yfcc-sift-2000-val.hdf5', help=""
     "name of the dataset for valid")
 data_arg.add_argument(
-    "--data_te", type=str, default='../data_dump/yfcc_sift_2k_te_unseen.hdf5', help=""
-    "name of the dataset for test")
+    "--data_te", type=str, default='../data_dump/yfcc-sift-2000-test.hdf5', help=""
+    "name of the unseen dataset for test")
 
 
 # -----------------------------------------------------------------------------

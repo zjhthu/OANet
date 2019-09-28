@@ -54,10 +54,6 @@ class YFCC(object):
                         data_item = data_seq[tp][i]
                         if tp in ['cx1s', 'cy1s', 'cx2s', 'cy2s', 'f1s', 'f2s']:
                             data_item = np.asarray([data_item])
-                        # if tp in ['f1s', 'f2s']:
-                        #     if type(data_item) != tuple:
-                        #         data_item = (data_item,data_item)
-                        #     data_item = np.asarray(data_item)
                         data_i =  data[tp].create_dataset(str(pair_idx), data_item.shape, dtype=np.float32)
                         data_i[:] = data_item.astype(np.float32)
                     pair_idx = pair_idx + 1
@@ -69,21 +65,20 @@ class YFCC(object):
             dataset_path = self.dataset_path+'/'+seq+'/'+self.mode
             dump_dir = self.dump_dir+'/'+seq+'/'+self.desc_name+'/'+self.mode
             dataset = Dataset(dataset_path, dump_dir, self.desc_name, self.vis_th, self.pair_num, pair_name)
-            #print('dump intermediate files.')
-            #dataset.dump_intermediate()
-            # print('dump matches.')
-            # dataset.dump_datasets()
+            print('dump intermediate files.')
+            dataset.dump_intermediate()
+            print('dump matches.')
+            dataset.dump_datasets()
         print('collect pkl.')
         self.collect()
         
 if __name__ == "__main__":
     config = parser.parse_args()
-    '''
     # dump yfcc test
     test_seqs = ['buckingham_palace','notre_dame_front_facade','reichstag', 'sacre_coeur']
     yfcc_te = YFCC(config.raw_data_path+'yfcc100m/', config.dump_dir, test_seqs, 'test', config.desc_name, \
         config.vis_th, config.pair_num, config.raw_data_path+'pairs/')
-    '''
+    #'''
     # dump yfcc training seqs
     with open('yfcc_train.txt','r') as ofp:
         train_seqs = ofp.read().split('\n')
@@ -94,3 +89,4 @@ if __name__ == "__main__":
     #    config.vis_th, 100, None)
     yfcc_tr_tr = YFCC(config.raw_data_path+'yfcc100m/', config.dump_dir, train_seqs, 'train', config.desc_name, \
         config.vis_th, 10000, None)
+    #'''

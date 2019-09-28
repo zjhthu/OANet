@@ -40,15 +40,34 @@ then run the fundamental matrix estimation demo:
 cd ./demo && python demo.py
 ```
 
+### Generate training and testing data
+
+First, download raw image data.
+```bash
+wget xxx
+tar -xvf xxx 
+```
+
+Then generate matches for these images. Here we provide scripts for SIFT.
+```bash
+cd dump_match
+python extract_feature.py
+```
+
+Then generate dataset for training and testing.
+```bash
+python yfcc.py
+```
+
 ### Test pretrained model
 
 We provide the model trained on YFCC100M described in our ICCV paper. Run the test script to get results in our paper.
 
-Download prepared training and testing data. This might take a while. 
+<!-- Download prepared training and testing data. This might take a while.  -->
 ```bash
-bash download_data.sh
-tar -xvf data_dump.tar.gz
-rm -r download_data_oanet_data
+<!-- bash download_data.sh -->
+<!-- tar -xvf data_dump.tar.gz -->
+<!-- rm -r download_data_oanet_data -->
 cd ./core 
 python main.py --run_mode=test --model_path=../model/essential/sift-2000 --res_path=../model/essential/sift-2000/ --use_ransac=False
 ```
@@ -64,10 +83,10 @@ python main.py
 
 You can train the fundamental estimation model by setting `--use_fundamental=True --geo_loss_margin=0.03` and use side information by setting `--use_ratio=2 --use_mutual=2`
 
-### [TODO] Train with your own local feature or data 
+### Train with your own local feature or data 
 
 The provided model are trained using SIFT. You had better retrain the model if you want to use with 
-your own local feature, such as ContextDesc, SuperPoint and etc. We will release the data generation scripts soon. 
+your own local feature, such as ContextDesc, SuperPoint and etc. You can follow the provide example scirpt in `./dump_match` to generate dataset for your own local feature or data.
 
 ## News
 
@@ -81,3 +100,5 @@ This code is heavily borrowed from [Learned-Correspondence](https://github.com/v
 
 ## Changelog
 
+### 2019 Sep 29 
+* Release code for data generation.
