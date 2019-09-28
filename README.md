@@ -44,30 +44,31 @@ cd ./demo && python demo.py
 
 First, download raw image data.
 ```bash
-wget xxx
-tar -xvf xxx 
+wget https://research.altizure.com/data/oanet_data/raw_data.tar.gz
+tar -xvf raw_data.tar.gz
 ```
 
 Then generate matches for these images. Here we provide scripts for SIFT.
 ```bash
 cd dump_match
 python extract_feature.py
-```
-
-Then generate dataset for training and testing.
-```bash
 python yfcc.py
 ```
+
+<!-- Then generate dataset for training and testing.
+```bash
+python yfcc.py
+``` -->
 
 ### Test pretrained model
 
 We provide the model trained on YFCC100M described in our ICCV paper. Run the test script to get results in our paper.
 
 <!-- Download prepared training and testing data. This might take a while.  -->
-```bash
 <!-- bash download_data.sh -->
 <!-- tar -xvf data_dump.tar.gz -->
 <!-- rm -r download_data_oanet_data -->
+```bash
 cd ./core 
 python main.py --run_mode=test --model_path=../model/essential/sift-2000 --res_path=../model/essential/sift-2000/ --use_ransac=False
 ```
@@ -85,8 +86,10 @@ You can train the fundamental estimation model by setting `--use_fundamental=Tru
 
 ### Train with your own local feature or data 
 
-The provided model are trained using SIFT. You had better retrain the model if you want to use with 
-your own local feature, such as ContextDesc, SuperPoint and etc. You can follow the provide example scirpt in `./dump_match` to generate dataset for your own local feature or data.
+The provided models are trained using SIFT. You had better retrain the model if you want to use with 
+your own local feature, such as ContextDesc, SuperPoint and etc. 
+
+You can follow the provide example scirpt in `./dump_match` to generate dataset for your own local feature or data.
 
 ## News
 

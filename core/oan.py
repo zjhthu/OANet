@@ -74,7 +74,7 @@ class OAFilter(nn.Module):
         return out
 
 # you can use this bottleneck block to prevent from overfiting when your dataset is small
-class ResnetFCBottleneck(nn.Module):
+class OAFilterBottleneck(nn.Module):
     def __init__(self, channels, points1, points2, out_channels=None):
         nn.Module.__init__(self)
         if not out_channels:
