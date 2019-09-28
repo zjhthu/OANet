@@ -1,0 +1,17 @@
+data_dump
+*__pycache__
+*model/
+*th
+*pyc
+raw_data
+data_dump2
+data_dump_yfcc_ratio/
+data_dump_sun3d_ratio/
+data_dump_yfcc_ratio_mutual/
+data_dump_sun3dratio_mutual/
+data_dump_contextdesc_yfcc/
+data_dump_contextdesc_yfcc2/
+data_dump_yfcc_overlap_25/
+*.hdf5
+data_dump_nm/
+*jpg
