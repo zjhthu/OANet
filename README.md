@@ -44,8 +44,8 @@ cd ./demo && python demo.py
 
 First, download raw image data.
 ```bash
-wget https://research.altizure.com/data/oanet_data/raw_data.tar.gz
-tar -xvf raw_data.tar.gz
+bash download_data.sh
+tar -xvf raw_data_yfcc.tar.gz
 ```
 
 Then generate matches for these images. Here we provide scripts for SIFT.
@@ -55,10 +55,6 @@ python extract_feature.py
 python yfcc.py
 ```
 
-<!-- Then generate dataset for training and testing.
-```bash
-python yfcc.py
-``` -->
 
 ### Test pretrained model
 
