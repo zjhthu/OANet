@@ -1,13 +1,15 @@
 #!/usr/bin/bash
 DATA_NAME=oanet_data
-FILE_NAME=raw_data
+FILE_NAME=$1
+OUTPUT_NAME=$2
 
 if [ ! -d download_data_$DATA_NAME ]; then
     mkdir -p download_data_$DATA_NAME
 fi
 
-CHUNK_START=0
-CHUNK_END=8
+let CHUNK_START=$3
+let CHUNK_END=$4
+
 
 for ((i=CHUNK_START;i<=CHUNK_END;i++)); do
     IDX=$(printf "%03d" $i)
@@ -16,8 +18,6 @@ for ((i=CHUNK_START;i<=CHUNK_END;i++)); do
     echo $URL
 done
 
-URL=research.altizure.com/data/$DATA_NAME/sha1sum.txt
-wget -c $URL -P download_data_$DATA_NAME
 
-cat download_data_oanet_data/*.tar.* > raw_data_yfcc.tar.gz
-
+cat download_data_oanet_data/*.tar.* > $OUTPUT_NAME
+rm -r download_data_oanet_data

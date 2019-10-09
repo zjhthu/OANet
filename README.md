@@ -6,6 +6,8 @@ This paper focuses on establishing correspondences between two images. We introd
 
 This repo contains the code and data for essential matrix estimation described in our ICCV paper. Besides, we also provide code for fundamental matrix estimation and the usage of side information (ratio test and mutual nearest neighbor check). Documents about this part will also be released soon.
 
+Welcome bugs and issues!
+
 If you find this project useful, please cite:
 
 ```
@@ -42,37 +44,47 @@ cd ./demo && python demo.py
 
 ### Generate training and testing data
 
-First, download raw image data.
+First download YFCC100M dataset.
 ```bash
-bash download_data.sh
+bash download_data.sh raw_data raw_data_yfcc.tar.gz 0 8
 tar -xvf raw_data_yfcc.tar.gz
 ```
 
-Then generate matches for these images. Here we provide scripts for SIFT.
+Download SUN3D testing (1.1G) and training (31G) dataset if you need.
+```bash
+bash download_data.sh raw_sun3d_test raw_sun3d_test.tar.gz 0 2
+tar -xvf raw_sun3d_test.tar.gz
+bash download_data.sh raw_sun3d_train raw_sun3d_train.tar.gz 0 63
+tar -xvf raw_sun3d_train.tar.gz
+```
+
+Then generate matches for YFCC100M and SUN3D (only testing). Here we provide scripts for SIFT, this will take a while.
 ```bash
 cd dump_match
 python extract_feature.py
 python yfcc.py
+python extract_feature.py --input_path=../raw_data/sun3d_test
+python sun3d.py
 ```
+Generate SUN3D training data if you need by following the same procedure and uncommenting corresponding lines in `sun3d.py`.
+
 
 
 ### Test pretrained model
 
-We provide the model trained on YFCC100M described in our ICCV paper. Run the test script to get results in our paper.
+We provide the model trained on YFCC100M and SUN3D described in our ICCV paper. Run the test script to get results in our paper.
 
-<!-- Download prepared training and testing data. This might take a while.  -->
-<!-- bash download_data.sh -->
-<!-- tar -xvf data_dump.tar.gz -->
-<!-- rm -r download_data_oanet_data -->
+
 ```bash
 cd ./core 
-python main.py --run_mode=test --model_path=../model/essential/sift-2000 --res_path=../model/essential/sift-2000/ --use_ransac=False
+python main.py --run_mode=test --model_path=../model/yfcc/essential/sift-2000 --res_path=../model/yfcc/essential/sift-2000/ --use_ransac=False
+python main.py --run_mode=test --data_te=../data_dump/sun3d-sift-2000-test.hdf5 --model_path=../model/sun3d/essential/sift-2000 --res_path=../model/sun3d/essential/sift-2000/ --use_ransac=False
 ```
 Set `--use_ransac=True` to get results after RANSAC post-processing.
 
 ### Train model on YFCC100M
 
-Download prepared data described above. Then run tranining script.
+After generating dataset for YFCC100M, run the tranining script.
 ```bash
 cd ./core 
 python main.py
@@ -82,10 +94,18 @@ You can train the fundamental estimation model by setting `--use_fundamental=Tru
 
 ### Train with your own local feature or data 
 
-The provided models are trained using SIFT. You had better retrain the model if you want to use with 
+The provided models are trained using SIFT. You had better retrain the model if you want to use OANet with 
 your own local feature, such as ContextDesc, SuperPoint and etc. 
 
-You can follow the provide example scirpt in `./dump_match` to generate dataset for your own local feature or data.
+You can follow the provided example scirpts in `./dump_match` to generate dataset for your own local feature or data.
+
+Tips for training OANet: if your dataset is small and overfitting is observed, you can consider replacing the `OAFilter` with `OAFilterBottleneck`.
+
+## Application on 3D reconstructions
+
+<p><img src="https://github.com/zjhthu/OANet/blob/master/media/sfm.pdf" alt="sample" width="70%"></p>
+
+<!-- Reconstructions from the Alamo Dataset. -->
 
 ## News
 
@@ -99,5 +119,8 @@ This code is heavily borrowed from [Learned-Correspondence](https://github.com/v
 
 ## Changelog
 
-### 2019 Sep 29 
+### 2019.09.29 
 * Release code for data generation.
+### 2019.10.04
+* Release model and data for SUN3D.
+

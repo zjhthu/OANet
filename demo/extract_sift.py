@@ -13,7 +13,7 @@ def str2bool(v):
 # Parse command line arguments.
 parser = argparse.ArgumentParser(description='extract sift.')
 parser.add_argument('--input_path', type=str, default='/home/liao/zjh/datasets/',
-  help='Image directory or movie file or "camera" (for webcam).')
+  help='datasets path.')
 parser.add_argument('--seqs', type=str, default='Fountain',
   help='split by .')
 parser.add_argument('--img_glob', type=str, default='*',
