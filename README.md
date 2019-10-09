@@ -32,8 +32,8 @@ For a quick start, clone the repo and download the pretrained model,
 ```bash
 git clone https://github.com/zjhthu/OANet.git 
 cd OANet 
-wget https://research.altizure.com/data/oanet_data/model.tar.gz 
-tar -xvf model.tar.gz
+wget https://research.altizure.com/data/oanet_data/model_v2.tar.gz 
+tar -xvf model_v2.tar.gz
 ```
 
 then run the fundamental matrix estimation demo:
