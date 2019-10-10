@@ -5,7 +5,6 @@ data_dump/
 model/
 log
 datasets
-*png
 *ply
 *pth
 *pkl

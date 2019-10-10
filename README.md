@@ -103,7 +103,7 @@ Tips for training OANet: if your dataset is small and overfitting is observed, y
 
 ## Application on 3D reconstructions
 
-<p><img src="https://github.com/zjhthu/OANet/blob/master/media/sfm.pdf" alt="sample" width="70%"></p>
+<p><img src="https://github.com/zjhthu/OANet/blob/master/media/sfm.png" alt="sample" width="70%"></p>
 
 <!-- Reconstructions from the Alamo Dataset. -->
 
