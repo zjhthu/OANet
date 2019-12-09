@@ -34,6 +34,9 @@ git clone https://github.com/zjhthu/OANet.git
 cd OANet 
 wget https://research.altizure.com/data/oanet_data/model_v2.tar.gz 
 tar -xvf model_v2.tar.gz
+cd model
+wget https://research.altizure.com/data/oanet_data/contextdesc-gl3d.tar.gz
+tar -xvf contextdesc-gl3d.tar.gz
 ```
 
 then run the fundamental matrix estimation demo:
@@ -101,6 +104,13 @@ You can follow the provided example scirpts in `./dump_match` to generate datase
 
 Tips for training OANet: if your dataset is small and overfitting is observed, you can consider replacing the `OAFilter` with `OAFilterBottleneck`.
 
+Here we also provide a pretrained model using ContextDesc on YFCC100M.
+```bash
+cd model/
+wget https://research.altizure.com/data/oanet_data/contextdesc-yfcc.tar.gz
+tar -xvf contextdesc-yfcc.tar.gz
+```
+
 ## Application on 3D reconstructions
 
 <p><img src="https://github.com/zjhthu/OANet/blob/master/media/sfm.png" alt="sample" width="70%"></p>
@@ -123,4 +133,7 @@ This code is heavily borrowed from [Learned-Correspondence](https://github.com/v
 * Release code for data generation.
 ### 2019.10.04
 * Release model and data for SUN3D.
+### 2019.12.09
+* Release a general purpose model trained on [GL3D-v2](https://github.com/lzx551402/GL3D/tree/v2), which has been tested on [FM-benchmark](https://github.com/JiawangBian/FM-Benc). This model achieves 66.1/92.3/84.0/47.0 on TUM/KITTI/T&T/CPC respectively.
+Release model trained using ContextDesc.
 

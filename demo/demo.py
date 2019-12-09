@@ -26,11 +26,11 @@ def draw_match(img1_path, img2_path, corr1, corr2):
 
 def main():
     """The main function."""
-    model_path = os.path.join('../model', 'yfcc/fundamental/sift-side-8k/model_best.pth')
+    model_path = os.path.join('../model', '/gl3d/sift-4000/model_best.pth')
     img1_name, img2_name = 'test_img1.jpg', 'test_img2.jpg'
 
     detector = ExtractSIFT(8000)
-    lm = LearnedMatcher(model_path, inlier_threshold=0, use_ratio=2, use_mutual=2)
+    lm = LearnedMatcher(model_path, inlier_threshold=1, use_ratio=0, use_mutual=0)
     kpt1, desc1 = detector.run(img1_name)
     kpt2, desc2 = detector.run(img2_name)
     _, corr1, corr2 = lm.infer([kpt1, kpt2], [desc1, desc2])
