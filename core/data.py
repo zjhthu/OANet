@@ -25,7 +25,7 @@ def collate_fn(batch):
         data['ts'].append(sample['t'])
         data['virtPts'].append(sample['virtPt'])
         if sample['xs'].shape[1] > cur_num_kp:
-            sub_idx = np.random.choice(sample['xs'].shape[1], cur_num_kp)
+            sub_idx = np.random.choice(sample['xs'].shape[1], cur_num_kp, replace=False)
             data['xs'].append(sample['xs'][:,sub_idx,:])
             data['ys'].append(sample['ys'][sub_idx,:])
             if sample['side'] != []:

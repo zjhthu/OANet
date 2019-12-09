@@ -35,8 +35,8 @@ cd OANet
 wget https://research.altizure.com/data/oanet_data/model_v2.tar.gz 
 tar -xvf model_v2.tar.gz
 cd model
-wget https://research.altizure.com/data/oanet_data/contextdesc-gl3d.tar.gz
-tar -xvf contextdesc-gl3d.tar.gz
+wget https://research.altizure.com/data/oanet_data/sift-gl3d.tar.gz
+tar -xvf sift-gl3d.tar.gz
 ```
 
 then run the fundamental matrix estimation demo:
@@ -134,6 +134,7 @@ This code is heavily borrowed from [Learned-Correspondence](https://github.com/v
 ### 2019.10.04
 * Release model and data for SUN3D.
 ### 2019.12.09
-* Release a general purpose model trained on [GL3D-v2](https://github.com/lzx551402/GL3D/tree/v2), which has been tested on [FM-benchmark](https://github.com/JiawangBian/FM-Benc). This model achieves 66.1/92.3/84.0/47.0 on TUM/KITTI/T&T/CPC respectively.
+* Release a general purpose model trained on [GL3D-v2](https://github.com/lzx551402/GL3D/tree/v2), which has been tested on [FM-Benchmark](https://github.com/JiawangBian/FM-Bench). This model achieves 66.1/92.3/84.0/47.0 on TUM/KITTI/T&T/CPC respectively using SIFT.
+
 Release model trained using ContextDesc.
 
