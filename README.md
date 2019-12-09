@@ -135,6 +135,5 @@ This code is heavily borrowed from [Learned-Correspondence](https://github.com/v
 * Release model and data for SUN3D.
 ### 2019.12.09
 * Release a general purpose model trained on [GL3D-v2](https://github.com/lzx551402/GL3D/tree/v2), which has been tested on [FM-Benchmark](https://github.com/JiawangBian/FM-Bench). This model achieves 66.1/92.3/84.0/47.0 on TUM/KITTI/T&T/CPC respectively using SIFT.
-
-Release model trained using ContextDesc.
+* Release model trained using ContextDesc.
 
