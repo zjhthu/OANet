@@ -26,7 +26,7 @@ def draw_match(img1_path, img2_path, corr1, corr2):
 
 def main():
     """The main function."""
-    model_path = os.path.join('../model', '/gl3d/sift-4000/model_best.pth')
+    model_path = os.path.join('../model', 'gl3d/sift-4000/model_best.pth')
     img1_name, img2_name = 'test_img1.jpg', 'test_img2.jpg'
 
     detector = ExtractSIFT(8000)
