@@ -104,12 +104,13 @@ You can follow the provided example scirpts in `./dump_match` to generate datase
 
 Tips for training OANet: if your dataset is small and overfitting is observed, you can consider replacing the `OAFilter` with `OAFilterBottleneck`.
 
-Here we also provide a pretrained model using ContextDesc on YFCC100M.
+Here we also provide a pretrained essential matrix estimation model using ContextDesc on YFCC100M.
 ```bash
 cd model/
 wget https://research.altizure.com/data/oanet_data/contextdesc-yfcc.tar.gz
 tar -xvf contextdesc-yfcc.tar.gz
 ```
+To test this model, you need to generate your own data using ContextDesc and then run `python main.py --run_mode=test --data_te=YOUR/OWN/CONTEXTDESC/DATA --model_path=../model/yfcc/essential/contextdesc-2000 --res_path=XX --use_ratio=2`.
 
 ## Application on 3D reconstructions
 

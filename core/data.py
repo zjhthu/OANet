@@ -28,12 +28,12 @@ def collate_fn(batch):
             sub_idx = np.random.choice(sample['xs'].shape[1], cur_num_kp, replace=False)
             data['xs'].append(sample['xs'][:,sub_idx,:])
             data['ys'].append(sample['ys'][sub_idx,:])
-            if sample['side'] != []:
+            if len(sample['side']) != 0:
                 data['sides'].append(sample['side'][sub_idx,:])
         else:
             data['xs'].append(sample['xs'])
             data['ys'].append(sample['ys'])
-            if sample['side'] != []:
+            if len(sample['side']) != 0:
                 data['sides'].append(sample['side'])
 
 
@@ -89,11 +89,15 @@ class CorrespondencesDataset(data.Dataset):
         elif self.config.use_ratio == 1 and self.config.use_mutual == 0:
             mask = np.asarray(self.data['ratios'][str(index)]).reshape(-1)  < config.ratio_test_th
             xs = xs[:,mask,:]
-            ys = ys[:,mask]
+            ys = ys[mask,:]
         elif self.config.use_ratio == 0 and self.config.use_mutual == 1:
             mask = np.asarray(self.data['mutuals'][str(index)]).reshape(-1).astype(bool)
             xs = xs[:,mask,:]
-            ys = ys[:,mask]
+            ys = ys[mask,:]
+        elif self.config.use_ratio == 0 and self.config.use_mutual == 2:
+            side = np.asarray(self.data['mutuals'][str(index)]).reshape(-1, 1)
+        elif self.config.use_ratio == 2 and self.config.use_mutual == 0:
+            side = np.asarray(self.data['ratios'][str(index)]).reshape(-1,1)
         elif self.config.use_ratio == 2 and self.config.use_mutual == 2:
             side.append(np.asarray(self.data['ratios'][str(index)]).reshape(-1,1)) 
             side.append(np.asarray(self.data['mutuals'][str(index)]).reshape(-1,1))
