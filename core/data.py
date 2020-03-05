@@ -117,6 +117,9 @@ class CorrespondencesDataset(data.Dataset):
             cy2 = np.asarray(self.data['cy2s'][str(index)])
             f1 = np.asarray(self.data['f1s'][str(index)])
             f2 = np.asarray(self.data['f2s'][str(index)])
+            f1 = f1[0] if f1.ndim == 2 else f1
+            f2 = f2[0] if f2.ndim == 2 else f2
+
             K1 = np.asarray([
                 [f1[0], 0, cx1[0]],
                 [0, f1[1], cy1[0]],
