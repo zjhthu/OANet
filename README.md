@@ -125,15 +125,15 @@ To test this model, you need to generate your own data using ContextDesc and the
 2. We also rank the third place on the [Visual Localization Benchmark](https://www.visuallocalization.net/workshop/cvpr/2019/) using ContextDesc (Aug. 30, 2019).
 
 ## Acknowledgement
-This code is heavily borrowed from [Learned-Correspondence](https://github.com/vcg-uvic/learned-correspondence-release). If you use the part of code related to data generation, testing and evaluation, you should cite this paper and follow its [license](https://github.com/zjhthu/OANet/LICENSES/LICENSE_UVIC_EPFL).
+This code is heavily borrowed from [Learned-Correspondence](https://github.com/vcg-uvic/learned-correspondence-release). If you use the part of code related to data generation, testing and evaluation, you should cite this paper and follow its [license](https://github.com/zjhthu/OANet/blob/master/LICENSES/LICENSE_UVIC_EPFL).
 
 ```
-    @inproceedings{yi2018learning,
-      title={Learning to Find Good Correspondences},
-      author={Kwang Moo Yi* and Eduard Trulls* and Yuki Ono and Vincent Lepetit and Mathieu Salzmann and Pascal Fua},
-      booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-      year={2018}
-    }
+@inproceedings{yi2018learning,
+  title={Learning to Find Good Correspondences},
+  author={Kwang Moo Yi* and Eduard Trulls* and Yuki Ono and Vincent Lepetit and Mathieu Salzmann and Pascal Fua},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  year={2018}
+}
 ```
 
 ## Changelog
