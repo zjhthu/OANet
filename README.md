@@ -125,7 +125,7 @@ To test this model, you need to generate your own data using ContextDesc and the
 2. We also rank the third place on the [Visual Localization Benchmark](https://www.visuallocalization.net/workshop/cvpr/2019/) using ContextDesc (Aug. 30, 2019).
 
 ## Acknowledgement
-This code is heavily borrowed from [Learned-Correspondence](https://github.com/vcg-uvic/learned-correspondence-release). If you use the part of code related to data generation, testing and evaluation, you should cite this paper and follow its license.
+This code is heavily borrowed from [Learned-Correspondence](https://github.com/vcg-uvic/learned-correspondence-release). If you use the part of code related to data generation, testing and evaluation, you should cite this paper and follow its [license](https://github.com/zjhthu/OANet/LICENSES/LICENSE_UVIC_EPFL).
 
 ```
     @inproceedings{yi2018learning,
