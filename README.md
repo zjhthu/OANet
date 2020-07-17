@@ -28,7 +28,7 @@ Please use Python 3.6, opencv-contrib-python (3.4.0.12) and Pytorch (>= 1.1.0). 
 
 ### Run the demo
 
-For a quick start, clone the repo and download the pretrained model,
+For a quick start, clone the repo and download the pretrained model.
 ```bash
 git clone https://github.com/zjhthu/OANet.git 
 cd OANet 
@@ -39,7 +39,7 @@ wget https://research.altizure.com/data/oanet_data/sift-gl3d.tar.gz
 tar -xvf sift-gl3d.tar.gz
 ```
 
-then run the fundamental matrix estimation demo:
+Then run the fundamental matrix estimation demo.
 
 ```bash
 cd ./demo && python demo.py
