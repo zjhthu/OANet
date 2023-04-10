@@ -25,7 +25,7 @@ Please use Python 3.6, opencv-contrib-python (3.4.0.12) and Pytorch (>= 1.1.0). 
 
 
 ## Example scripts
-
+## Note: Since 2023.04, all the data and model will be stored on [google drive](https://drive.google.com/drive/folders/1qbnrDSXJhnXC0MiZNNqW7vezAHlkBNgo?usp=sharing), previous link to Altizure platform will not be available. Please download corresponding data from google drive.
 ### Run the demo
 
 For a quick start, clone the repo and download the pretrained model.
